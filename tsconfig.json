@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "outDir": "./build",
+    "rootDir": ".",
+    "esModuleInterop": true,
+    "lib": ["esnext"],
+    "strict": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*", "./src/*"]
+}

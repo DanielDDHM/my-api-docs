@@ -1,0 +1,46 @@
+{
+  "name": "my-docs",
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Machado",
+    "email": "daniel.ddhm@gmail.com",
+    "url": "http://localhost:4000"
+  },
+  "scripts": {
+    "start": "node build/server",
+    "dev": "nodemon src/server",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "apollo-server": "2.24.0",
+    "apollo-server-express": "^2.24.0",
+    "axios": "^0.21.1",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-server-status": "^1.0.3",
+    "graphql": "15.5.0",
+    "nexus": "1.0.0"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "7.2.1",
+    "@semantic-release/npm": "^7.1.1",
+    "@semantic-release/release-notes-generator": "^9.0.2",
+    "@types/node": "15.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-plugin-import": "^2.22.1",
+    "git-branch": "^2.0.1",
+    "nodemon": "^2.0.7",
+    "semantic-release": "^17.4.2",
+    "sucrase": "3.18.1",
+    "ts-node": "9.1.1",
+    "typescript": "4.2.4"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
