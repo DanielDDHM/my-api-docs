@@ -1,0 +1,32 @@
+type Schedule {
+    id: String,
+    day: String,
+    start: String,
+    end: String,
+    employeeId: String,
+    createdAt: String,
+    updatedAt: String,
+    deleted: Boolean,
+    deletedAt: String
+}
+
+input HrScheduleInput {
+    day: String!,
+    start: String!,
+    end: String!,
+    employeeId: String!
+}
+
+
+type HrScheduleUniqueResponse {
+	status: Int,
+	data: Schedule,
+	messages: [String],
+	isValid: Boolean
+}
+
+type Mutation {
+    createHrSchedule(data: HrScheduleInput!): HrScheduleUniqueResponse
+    updateHrSchedule(data: HrScheduleInput!, id:String!): HrScheduleUniqueResponse
+    deleteHrSchedule(id: String!): HrScheduleUniqueResponse
+}

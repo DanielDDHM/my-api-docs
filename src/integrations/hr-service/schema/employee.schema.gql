@@ -1,0 +1,110 @@
+type Mutation {
+    createHrEmployee(data: CreateHrEmployeeInput!): HrEmployeeUniqueResponse,
+    updateHrEmployee(data: UpdateHrEmployeeInput!, id: String!): HrEmployeeUniqueResponse,
+    deleteHrEmployee(id: String!): HrEmployeeUniqueResponse,
+}
+
+type Query {
+    getHrEmployeeById(id:String!): HrEmployeeGetByIdResponse,
+    indexHrEmployees(data: IndexHrEmployeesInput!): HrEmployeeIndexResponse,
+}
+
+type Employee {
+    id: String,
+    fullName: String,
+    birthDate: String,
+    admittedAt: String,
+    dismissedAt: String,
+    createdAt: String,
+    updatedAt: String,
+    deleted: Boolean,
+    deletedAt: String,
+    capU: String,
+    role: String,
+    mainWalletAddress: String,
+    groupId: String,
+}
+
+type EmployeeById {
+    id: String,
+    fullName: String,
+    birthDate: String,
+    admittedAt: String,
+    dismissedAt: String,
+    createdAt: String,
+    updatedAt: String,
+    deleted: Boolean,
+    deletedAt: String,
+    capU: String,
+    role: String,
+    mainWalletAddress: String,
+    groupId: String,
+    addresses: [Address],
+    contacts: [Contact],
+    documents:[Document],
+    paychecks:[PaycheckHistory],
+    promotions:[Promotion],
+    schedules:[Schedule],
+    strikes:[Strike]
+
+}
+
+type HrEmployeeUniqueResponse {
+	status: Int,
+	data: Employee,
+	messages: [String],
+	isValid: Boolean,
+}
+
+type HrEmployeeIndexResponse {
+	status: Int,
+	data: [Employee],
+	messages: [String],
+    totalPages: Int,
+    total: Int,
+	isValid: Boolean,
+}
+
+type HrEmployeeGetByIdResponse {
+	status: Int,
+	data: EmployeeById,
+	messages: [String],
+	isValid: Boolean,
+}
+
+input CreateHrEmployeeInput {
+    fullName: String,
+    birthDate: String,
+    admittedAt: String,
+    capU: String,
+    role: String,
+    mainWalletAddress: String,
+    groupId: String,
+}
+
+input UpdateHrEmployeeInput {
+    fullName: String,
+    birthDate: String,
+    admittedAt: String,
+    dismissedAt: String,
+    capU: String,
+    role: String,
+    mainWalletAddress: String,
+    groupId: String,
+}
+
+input IndexHrEmployeesFilters {
+    groupId: String,
+    fullName: String,
+    birthDate: String,
+    admittedAt: String,
+    dismissedAt: String,
+    role: String,
+    deleted: Boolean,   
+}
+
+input IndexHrEmployeesInput {
+    filters: IndexHrEmployeesFilters,
+    perPage: Int,
+    page: Int,
+}

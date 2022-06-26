@@ -1,0 +1,36 @@
+type Document {
+  id: String
+  label: String
+  value: String
+  createdAt: String
+  updatedAt: String
+  deleted: Boolean
+  deletedAt: String
+  employeeId: String
+}
+
+input CreateHrDocumentInput {
+    label: String,
+    value: String,
+    employeeId: String
+}
+
+type HrDocumentUniqueResponse {
+	status: Int,
+	data: Document,
+	messages: [String],
+	isValid: Boolean,
+}
+
+input UpdateHrDocumentInput {
+    label: String,
+    value: String,
+    employeeId: String,
+}
+
+
+type Mutation {
+    createHrDocument(data: CreateHrDocumentInput!): HrDocumentUniqueResponse,
+    updateHrDocument(data: UpdateHrDocumentInput!, id: String!): HrDocumentUniqueResponse,
+    deleteHrDocument(id: String!): HrDocumentUniqueResponse,
+}

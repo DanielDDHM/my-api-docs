@@ -1,0 +1,29 @@
+type Mutation {
+  createHrPaycheckHistory(data: CreateHrPaycheckHistoryInput!): HrPaycheckHistoryUniqueResponse,
+}
+
+type PaycheckHistory {
+  id: String,
+  title: String,
+  value: String,
+  walletAddress: String,
+  createdAt: String,
+  updatedAt: String,
+  deleted: Boolean,
+  deletedAt: String,
+  employeeId: String,
+}
+
+type HrPaycheckHistoryUniqueResponse {
+  status: Int,
+	data: PaycheckHistory,
+	messages: [String],
+	isValid: Boolean,
+}
+
+input CreateHrPaycheckHistoryInput {
+  title: String,
+  value: String,
+  walletAddress: String,
+  employeeId: String,
+}

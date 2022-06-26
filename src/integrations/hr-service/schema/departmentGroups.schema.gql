@@ -1,0 +1,63 @@
+#import DepartmentTeam from "departmentTeams.schema.gql"
+
+type DepartmentGroup {
+  id: String
+  title: String
+  description: String
+  createdAt: String
+  updatedAt: String
+  deleted: Boolean
+  deletedAt: String
+  teamId: String
+  team: DepartmentTeam
+}
+
+input CreateHrDepartmentGroupInput {
+    title: String,
+    description: String,
+    teamId: String
+}
+
+type HrDepartmentGroupUniqueResponse {
+	status: Int,
+	data: DepartmentGroup,
+	messages: [String],
+	isValid: Boolean,
+}
+
+input UpdateHrDepartmentGroupInput {
+    title: String,
+    description: String,
+    teamId: String,
+}
+type HrDepartmentGroupIndexResponse {
+    status: Int,
+	data: [DepartmentGroup],
+	messages: [String],
+	isValid: Boolean,
+    total: Int,
+    totalPages: Int,
+}
+
+input IndexHrDepartmentGroupFilters {
+    title: String,
+    description: String,
+    teamId: String
+}
+
+input IndexHrDepartmentGroupInput {
+    filters: IndexHrDepartmentGroupFilters,
+    page: Int,
+    perPage: Int,
+}
+
+type Mutation {
+    createHrDepartmentGroup(data: CreateHrDepartmentGroupInput!): HrDepartmentGroupUniqueResponse,
+    deleteHrDepartmentGroup(id: String!): HrDepartmentGroupUniqueResponse,
+    updateHrDepartmentGroup(data: UpdateHrDepartmentGroupInput!, id: String!): HrDepartmentGroupUniqueResponse,
+}
+
+type Query {
+    getHrDepartmentGroupById(id: String!): HrDepartmentGroupUniqueResponse,
+    getAllHrDepartmentGroup(data: IndexHrDepartmentGroupInput!): HrDepartmentGroupIndexResponse,
+}

@@ -1,0 +1,28 @@
+type Mutation {
+  createHrStrike(data: CreateHrStrikeInput!): HrStrikeUniqueResponse,
+  deleteHrStrike(id: String!): HrStrikeUniqueResponse,
+}
+
+type Strike {
+  id: String,
+  title: String,
+  description: String,
+  createdAt: String,
+  updatedAt: String,
+  deleted: Boolean,
+  deletedAt: String,
+  employeeId: String,
+}
+
+type HrStrikeUniqueResponse {
+  status: Int,
+	data: Strike,
+	messages: [String],
+	isValid: Boolean,
+}
+
+input CreateHrStrikeInput {
+  title: String,
+  description: String,
+  employeeId: String!,
+}

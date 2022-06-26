@@ -1,0 +1,52 @@
+type Department {
+    id: String,
+    title: String,
+    description: String,
+    createdAt: String,
+    updatedAt: String,
+    deleted: Boolean,
+    deletedAt: String,
+}
+
+input HrDepartmentInput {
+    title: String,
+    description: String,
+}
+
+input IndexHrDepartmentFilters {
+    title: String,
+    description: String,
+}
+
+input IndexHrDepartmentsInput {
+    filters: IndexHrDepartmentFilters,
+    perPage: Int,
+    page: Int,
+}
+
+type HrDepartmentUniqueResponse {
+	status: Int,
+	data: Department,
+	messages: [String],
+	isValid: Boolean,
+}
+
+type HrDepartmentIndexResponse {
+	status: Int,
+	data: [Department],
+	messages: [String],
+	isValid: Boolean,
+    total: Int,
+    totalPages: Int,
+}
+
+type Mutation {
+    createHrDepartment(data: HrDepartmentInput!): HrDepartmentUniqueResponse,
+    updateHrDepartment(data: HrDepartmentInput!, id: String!): HrDepartmentUniqueResponse
+    deleteHrDepartment(id: String!): HrDepartmentUniqueResponse,
+}
+
+type Query {
+    getHrDepartmentById(id: String!): HrDepartmentUniqueResponse,
+    indexHrDepartments(data: IndexHrDepartmentsInput!): HrDepartmentIndexResponse,
+}

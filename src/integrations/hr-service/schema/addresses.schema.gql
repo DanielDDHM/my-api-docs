@@ -1,0 +1,43 @@
+type Address {
+    id: String,
+    zipcode: String,
+    streetName: String,
+    number: String,
+    neighborhood: String,
+    state: String,
+    country: String,
+    reference: String,
+    city: String,
+    employeeId: String,
+    createdAt: String,
+    updatedAt: String,
+    deleted: Boolean,
+    deletedAt: String,
+}
+
+input HrAddressInput {
+    zipcode: String!,
+    streetName: String!,
+    number: String!,
+    neighborhood: String!,
+    state: String!,
+    country: String!,
+    reference: String!,
+    city: String!,
+    employeeId: String!,
+}
+
+type HrAddressUniqueResponse {
+	status: Int,
+	data: Address,
+	messages: [String],
+	isValid: Boolean,
+}
+
+type Mutation {
+    createHrAddress(data: HrAddressInput!): HrAddressUniqueResponse,
+    updateHrAddress(id:String, data: HrAddressInput!): HrAddressUniqueResponse
+    deleteHrAddress(id:String): HrAddressUniqueResponse
+}
+
+

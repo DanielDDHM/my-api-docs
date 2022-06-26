@@ -1,0 +1,35 @@
+type Contact {
+  id: String
+  label: String
+  value: String
+  createdAt: String
+  updatedAt: String
+  deleted: Boolean
+  deletedAt: String
+  employeeId: String
+}
+
+input CreateHrContactInput {
+    label: String,
+    value: String,
+    employeeId: String,
+}
+
+type HrContactUniqueResponse {
+	status: Int,
+	data: Contact,
+	messages: [String],
+	isValid: Boolean,
+}
+
+input UpdateHrContactInput {
+    label: String,
+    value: String,
+    employeeId: String,
+}
+
+type Mutation {
+    createHrContact(data: CreateHrContactInput!): HrContactUniqueResponse,
+    updateHrContact(data: UpdateHrContactInput!, id: String!): HrContactUniqueResponse,
+    deleteHrContact(id: String!): HrContactUniqueResponse,
+}
