@@ -12,3 +12,9 @@ export interface LoginRequest {
     password: string,
   }
 }
+
+export interface MailInput {
+  to: string,
+  subject: string,
+  message: string,
+}

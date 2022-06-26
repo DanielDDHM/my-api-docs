@@ -1,12 +1,10 @@
-import axios from 'axios';
+import api from './integrations/api';
+import { ExpressContext } from 'apollo-server-express';
 
-const EXAMPLE_API = axios.create({
-  baseURL: 'http://localhost:3000',
+const context = ({ req }: ExpressContext) => ({
+  request: req,
+  api
 });
 
-const context = {
-};
-
 export type Context = typeof context;
-
 export default context;

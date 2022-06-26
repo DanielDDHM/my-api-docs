@@ -5,7 +5,6 @@ const swaggerMiddleware = (() => {
   function setup(app: e.Application) {
     app.use('/docs', swaggerUi.serve, swaggerUi.setup());
   }
-
   return {
     setup,
   };
