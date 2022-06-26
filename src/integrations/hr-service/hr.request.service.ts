@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from 'axios';
-import hrService from '../integrations/hr-service/hr.service';
+import hrService from './hr.service';
 
 const requestHR = async (config: AxiosRequestConfig) => {
   try {
