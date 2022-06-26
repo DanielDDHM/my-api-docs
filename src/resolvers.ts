@@ -2,7 +2,7 @@ import { mergeResolvers } from '@graphql-tools/merge';
 import { loadFilesSync } from '@graphql-tools/load-files';
 import path from 'path';
 
-const resolversArray = loadFilesSync(path.join(__dirname, './**/*.resolvers.*'));
-const resolvers = mergeResolvers(resolversArray);
+const resolversArray = loadFilesSync(path.resolve('./**/*.resolvers.*'));
+// const resolvers = mergeResolvers(resolversArray);
 
-export default resolvers;
+export default resolversArray;

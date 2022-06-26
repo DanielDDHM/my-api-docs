@@ -39,8 +39,10 @@ const server = new ApolloServer({
     }).end();
   });
 
+  server.applyMiddleware({ app })
+
   app.listen(config.APP_PORT, () => {
     console.log(`\n🚀 Server ready at http://localhost:${config.APP_PORT}`);
-    console.log(`⚛️  GraphQL at http://localhost:${config.APP_PORT}`);
+    console.log(`⚛️  GraphQL at http://localhost:${config.APP_PORT}${server.graphqlPath}`);
   });
 })();
