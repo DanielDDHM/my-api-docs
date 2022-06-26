@@ -2,20 +2,24 @@ import 'make-promises-safe';
 import express from 'express';
 import config from './config';
 import cors from 'cors';
+import context from './context';
+import typeDefs from './typeDef';
+import resolvers from './resolvers';
+
 import { StatusCode } from './constants/statuscode.typings';
 import { ApolloServer } from 'apollo-server-express';
-import context from './context';
 
 const app: express.Application = express();
 
 // CONFIGURE GRAPHQL EXPRESS
 
-
 // CONFIGURE SERVER AND OWN EXPRESSS MODULES
 const server = new ApolloServer({
-  context: context,
+  typeDefs,
+  resolvers,
+  context,
   debug: true,
-  introspection: true
+  introspection: true,
 });
 
 (async () => {
