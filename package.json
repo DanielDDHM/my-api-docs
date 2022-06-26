@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node build/server",
     "dev": "nodemon src/server",
+    "prod": "cross-env NODE_ENV=prod nodemon src/server",
     "build": "tsc"
   },
   "dependencies": {
@@ -18,6 +19,7 @@
     "apollo-server": "2.24.0",
     "apollo-server-express": "^2.24.0",
     "axios": "^0.21.1",
+    "cross-env": "^7.0.3",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "express-server-status": "^1.0.3",
