@@ -1,6 +1,5 @@
 import 'make-promises-safe';
 import express from 'express';
-import config from './config';
 import cors from 'cors';
 import context from './context';
 import typeDefs from './typeDef';
@@ -9,6 +8,7 @@ import resolvers from './resolvers';
 import { StatusCode } from './constants/statuscode.typings';
 import { ApolloServer } from 'apollo-server-express';
 
+const PORT = process.env.APP_PORT || 4000;
 const app: express.Application = express();
 
 // CONFIGURE GRAPHQL EXPRESS
@@ -40,8 +40,8 @@ const server = new ApolloServer({
 
   server.applyMiddleware({ app })
 
-  app.listen(config.APP_PORT, () => {
-    console.log(`\n🚀 Server ready at http://localhost:${config.APP_PORT}`);
-    console.log(`⚛️  GraphQL at http://localhost:${config.APP_PORT}${server.graphqlPath}`);
+  app.listen(PORT, () => {
+    console.log(`\n🚀 Server ready at http://localhost:${PORT}`);
+    console.log(`⚛️  GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
   });
 })();

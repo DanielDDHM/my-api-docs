@@ -7,7 +7,7 @@ export const BASE_URLS = {
     PROD: ''
   },
   BET_SERVICE: {
-    PROD: ''
+    PROD: 'https://animalbet.herokuapp.com/'
   },
   CODELAND_SERVICE: {
     PROD: ''
