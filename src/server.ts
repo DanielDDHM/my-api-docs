@@ -31,7 +31,6 @@ const server = new ApolloServer({
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
   }));
 
-
   // VERIFICATION
   app.get('/', (_, res) => {
     res.status(StatusCode.OK).send({
