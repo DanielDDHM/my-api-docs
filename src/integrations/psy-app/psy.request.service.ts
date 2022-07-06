@@ -1,9 +1,9 @@
 import { AxiosRequestConfig } from 'axios';
-import betService from './bet.service';
+import psyService from './psy.service';
 
-const requestBet = async (config: AxiosRequestConfig) => {
+const requestPsy = async (config: AxiosRequestConfig) => {
   try {
-    const resp = await betService(config);
+    const resp = await psyService(config);
 
     return {
       status: resp?.status,
@@ -18,7 +18,7 @@ const requestBet = async (config: AxiosRequestConfig) => {
       ----------------------------------------------------
       🚨 EXCEPTION ALERT 🚨
       An exception ocurred while trying to request Human Resources MS.
-      Route: ${betService.defaults.baseURL}${config.url}
+      Route: ${psyService.defaults.baseURL}${config.url}
       Exception: ${e}
       ----------------------------------------------------
     `);
@@ -34,4 +34,4 @@ const requestBet = async (config: AxiosRequestConfig) => {
   }
 };
 
-export default requestBet;
+export default requestPsy;
